@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
+	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>music</title>
+</h:head>
+<h:body>
+
+
+<div class="card">
+    <h5>MP3</h5>
+    <p:audio value="#{controllerMusic.musica}"
+             player="mp3"
+             controls="true"
+             onplay="console.log('MP3 Started Playing')"
+             onpause="console.log('MP3 Stopped Playing')">
+        Your browser does not support the audio element.
+        See: <h:outputLink value="https://www.w3schools.com/html/html5_audio.asp">HTML5 Audio</h:outputLink>
+    </p:audio>
+</div>
+
+</h:body>
+
+</html>
