@@ -9,20 +9,26 @@
 </h:head>
 <h:body>
 
-	<p:growl/>
+	<p:growl />
 	<h:form>
-	
-		<p:inputText value="#{controllerMusica.musica.nome}"/>
-		<p:inputMask value="#{controllerMusica.musica.duracao}" mask="99:99" 
-			converter="converterTime"/>
-		
-		<p:commandButton value="salvar" action="#{controllerMusica.salvar()}" 
-			ajax="false"/>
-		
+
+		<p:inputText value="#{controllerMusica.musica.nome}" />
+		<p:inputMask value="#{controllerMusica.musica.duracao}" mask="99:99"
+			converter="converterTime" />
+
+		<p:selectOneMenu id="group" value="#{controllerMusica.artista.id}">
+			<f:selectItem itemLabel="Selecione" itemValue="" />
+			<f:selectItems var="artista" value="#{controllerMusica.artistas}" itemLabel="#{artista.nome}"
+				itemValue="#{artista.id}"/>
+		</p:selectOneMenu>
+
+		<p:commandButton value="salvar" action="#{controllerMusica.salvar()}"
+			ajax="false" />
+
 	</h:form>
 
 
-	<h:outputText value="#{controllerMusica.musica.duracao}"/>
+	<h:outputText value="#{controllerMusica.musica.duracao}" />
 </h:body>
 
 </html>
