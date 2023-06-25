@@ -1,11 +1,16 @@
 package com.fabx.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Musica {
@@ -17,6 +22,12 @@ public class Musica {
 	private String nome;
 	
 	private Integer duracao;
+	
+	@ManyToMany
+	@JoinTable(name="musica_artista",
+			joinColumns = @JoinColumn(name="musica_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name="artista_id", referencedColumnName = "id"))
+	private List<Artista> artista = new ArrayList<Artista>();
 
 	public Long getId() {
 		return id;
@@ -40,6 +51,14 @@ public class Musica {
 
 	public void setDuracao(Integer duracao) {
 		this.duracao = duracao;
+	}
+	
+	public List<Artista> getArtista() {
+		return artista;
+	}
+
+	public void setArtista(List<Artista> artista) {
+		this.artista = artista;
 	}
 
 	@Override
