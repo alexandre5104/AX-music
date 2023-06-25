@@ -11,6 +11,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Album {
@@ -19,8 +22,13 @@ public class Album {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message = "O nome não pode ser nulo!")
+	@Size(min = 2, max = 50, message 
+    = "O nome deve estar entre 2 e 50 caracteres")
 	private String nome;
 
+	@NotEmpty(message = "O nome não pode ser nulo!")
+	@Size(min = 4, message="O campo ano precisa ter no mínimo 4 caracteres")
 	private Integer ano;
 	
 	@ManyToMany

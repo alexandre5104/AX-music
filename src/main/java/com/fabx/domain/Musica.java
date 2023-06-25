@@ -1,6 +1,6 @@
 package com.fabx.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,8 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Musica {
@@ -22,9 +22,13 @@ public class Musica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message = "O nome não pode ser nulo!")
+	@Size(min = 3, max = 50, message 
+    = "O nome deve estar entre 2 e 50 caracteres")
 	private String nome;
 	
-	private LocalDateTime duracao;
+	@NotEmpty(message="O campo duração não pode ser nulo")
+	private LocalTime duracao;
 	
 	@ManyToMany
 	@JoinTable(name="musica_artista",
@@ -48,11 +52,11 @@ public class Musica {
 		this.nome = nome;
 	}
 
-	public LocalDateTime getDuracao() {
+	public LocalTime getDuracao() {
 		return duracao;
 	}
 
-	public void setDuracao(LocalDateTime duracao) {
+	public void setDuracao(LocalTime duracao) {
 		this.duracao = duracao;
 	}
 	

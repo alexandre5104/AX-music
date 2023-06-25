@@ -9,20 +9,20 @@ import jakarta.faces.convert.Converter;
 import jakarta.faces.convert.FacesConverter;
 
 @FacesConverter(value = "converterTime")
-public class ConverterTime implements Converter {
+public class ConverterTime implements Converter<LocalTime> {
 
 	@Override
-	public Object getAsObject(FacesContext context, UIComponent component, String value) {
+	public LocalTime getAsObject(FacesContext context, UIComponent component, String value) {
 		LocalTime time = LocalTime.parse(value);
 		return time;
 	}
 
 	@Override
-	public String getAsString(FacesContext context, UIComponent component, Object value) {
+	public String getAsString(FacesContext context, UIComponent component, LocalTime value) {
 		
 		DateTimeFormatter formater = DateTimeFormatter.ofPattern("mm:ss");
 		
-		LocalTime localTime = (LocalTime) value;
+		LocalTime localTime = value;
 		
 		String horaFormatada = localTime.format(formater);
 		
