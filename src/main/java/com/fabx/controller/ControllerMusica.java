@@ -1,6 +1,8 @@
 package com.fabx.controller;
 
-import com.fabx.domain.Artista;
+import java.time.LocalTime;
+
+import com.fabx.domain.Musica;
 import com.fabx.helper.MessageHelper;
 
 import jakarta.enterprise.context.RequestScoped;
@@ -10,28 +12,30 @@ import jakarta.inject.Named;
 
 @Named
 @RequestScoped
-public class ControllerArtista {
-	
+public class ControllerMusica {
+
 	@Inject
 	private MessageHelper mh;
 
-	private Artista artista = new Artista();
+	private Musica musica = new Musica();
 
 	public void salvar() {
-		
-		System.out.println(artista.getNome());
-		
+
+		System.out.println(musica.getNome());
+
+		System.out.println(musica.getDuracao());
+
 		mh.addMensagem(new FacesMessage("Adicionado com sucesso"));
-		
-		artista = new Artista();
-	}
-	
-	public Artista getArtista() {
-		return artista;
+
+		musica = new Musica();
 	}
 
-	public void setArtista(Artista artista) {
-		this.artista = artista;
+	public Musica getMusica() {
+		return musica;
+	}
+
+	public void setMusica(Musica musica) {
+		this.musica = musica;
 	}
 
 }

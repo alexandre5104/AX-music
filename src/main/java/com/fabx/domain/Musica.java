@@ -27,7 +27,6 @@ public class Musica {
     = "O nome deve estar entre 2 e 50 caracteres")
 	private String nome;
 	
-	@NotEmpty(message="O campo duração não pode ser nulo")
 	private LocalTime duracao;
 	
 	@ManyToMany

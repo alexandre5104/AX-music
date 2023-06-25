@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
+	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>music</title>
+</h:head>
+<h:body>
+
+	<p:growl/>
+	<h:form>
+	
+		<p:inputText value="#{controllerMusica.musica.nome}"/>
+		<p:inputMask value="#{controllerMusica.musica.duracao}" mask="99:99" 
+			converter="converterTime"/>
+		
+		<p:commandButton value="salvar" action="#{controllerMusica.salvar()}" 
+			ajax="false"/>
+		
+	</h:form>
+
+
+	<h:outputText value="#{controllerMusica.musica.duracao}"/>
+</h:body>
+
+</html>

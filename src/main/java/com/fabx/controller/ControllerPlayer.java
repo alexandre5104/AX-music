@@ -9,11 +9,11 @@ import org.primefaces.model.StreamedContent;
 import jakarta.inject.Named;
 
 @Named
-public class ControllerMusic {
+public class ControllerPlayer {
 
 	private StreamedContent musica;
 
-	public ControllerMusic() {
+	public ControllerPlayer() {
 
 		setMusica(DefaultStreamedContent.builder()
 				.contentType(AudioType.MP3.getMediaType())
