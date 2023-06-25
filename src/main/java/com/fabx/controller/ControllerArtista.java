@@ -2,6 +2,7 @@ package com.fabx.controller;
 
 import com.fabx.domain.Artista;
 import com.fabx.helper.MessageHelper;
+import com.fabx.services.ServiceArtista;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;
@@ -17,9 +18,12 @@ public class ControllerArtista {
 
 	private Artista artista = new Artista();
 
+	@Inject
+	private ServiceArtista serviceArtista;
+	
 	public void salvar() {
 		
-		System.out.println(artista.getNome());
+		serviceArtista.salvar(artista);
 		
 		mh.addMensagem(new FacesMessage("Adicionado com sucesso"));
 		
