@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
+	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>music</title>
+</h:head>
+<h:body>
+
+	<p:growl />
+	<h:form>
+	<h:panelGrid columns="2">
+		<h:outputLabel value="Nome"/>
+		<p:inputText value="#{controllerAlbum.album.nome}" />
+		
+		<h:outputLabel value="ano"/>
+		<p:inputMask value="#{controllerAlbum.album.ano}"  />
+
+		<h:outputLabel value="Artista"/>
+		<p:selectOneMenu id="group" value="#{controllerAlbum.artista.id}">
+			<f:selectItem itemLabel="Selecione" itemValue="" />
+			<f:selectItems var="artista" value="#{controllerAlbum.artistas}" itemLabel="#{artista.nome}"
+				itemValue="#{artista.id}"/>
+		</p:selectOneMenu>
+
+		<p:commandButton value="salvar" action="#{controllerAlbum.salvar()}"
+			ajax="false" />
+	</h:panelGrid>
+	</h:form>
+
+
+	<h:outputText value="#{controllerMusica.musica.duracao}" />
+</h:body>
+
+</html>
