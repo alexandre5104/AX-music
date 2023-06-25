@@ -1,5 +1,6 @@
 package com.fabx.domain;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Musica {
@@ -21,7 +24,7 @@ public class Musica {
 	
 	private String nome;
 	
-	private Integer duracao;
+	private LocalDateTime duracao;
 	
 	@ManyToMany
 	@JoinTable(name="musica_artista",
@@ -45,11 +48,11 @@ public class Musica {
 		this.nome = nome;
 	}
 
-	public Integer getDuracao() {
+	public LocalDateTime getDuracao() {
 		return duracao;
 	}
 
-	public void setDuracao(Integer duracao) {
+	public void setDuracao(LocalDateTime duracao) {
 		this.duracao = duracao;
 	}
 	

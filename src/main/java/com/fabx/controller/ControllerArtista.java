@@ -1,5 +1,8 @@
 package com.fabx.controller;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 import com.fabx.domain.Artista;
 import com.fabx.helper.MessageHelper;
 
@@ -14,12 +17,16 @@ public class ControllerArtista {
 	
 	@Inject
 	private MessageHelper mh;
+	
+	private LocalTime duracao;
 
 	private Artista artista = new Artista();
 
 	public void salvar() {
 		
 		System.out.println(artista.getNome());
+		
+		System.out.println(duracao);
 		
 		mh.addMensagem(new FacesMessage("Adicionado com sucesso"));
 		
@@ -32,5 +39,13 @@ public class ControllerArtista {
 
 	public void setArtista(Artista artista) {
 		this.artista = artista;
+	}
+	
+	public LocalTime getDuracao() {
+		return duracao;
+	}
+
+	public void setDuracao(LocalTime duracao) {
+		this.duracao = duracao;
 	}
 }

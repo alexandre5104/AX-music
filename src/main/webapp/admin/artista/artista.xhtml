@@ -14,12 +14,19 @@
 	
 		<p:inputText value="#{controllerArtista.artista.nome}"/>
 		<p:inputText value="#{controllerArtista.artista.nacionalidade}"/>
+			
+		<p:inputMask value="#{controllerArtista.duracao}" mask="99:99" 
+			converter="converterTime">
+			<!-- <f:convertDateTime type="localTime" pattern="HH:mm:ss"/> -->
+		</p:inputMask>
 		
 		<p:commandButton value="salvar" action="#{controllerArtista.salvar()}" 
 			ajax="false"/>
 		
 	</h:form>
 
+
+	<h:outputText value="#{controllerArtista.duracao}"/>
 </h:body>
 
 </html>
