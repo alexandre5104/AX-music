@@ -17,7 +17,7 @@ public class RepositoryMusica {
 	public void salvar(Artista artista, Musica musica, Album album) {
 		Artista artistaRetornado = manager.find(Artista.class, artista.getId());
 		Album albumRetornado = manager.find(Album.class, album.getId());
-		musica.getArtista().add(artistaRetornado);
+		musica.getArtistas().add(artistaRetornado);
 		musica.getAlbuns().add(albumRetornado);
 		manager.persist(musica);
 	}
