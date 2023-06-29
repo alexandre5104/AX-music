@@ -1,5 +1,7 @@
 package com.fabx.repository;
 
+import java.util.List;
+
 import com.fabx.domain.Album;
 import com.fabx.domain.Artista;
 
@@ -15,6 +17,10 @@ public class RepositoryAlbum {
 		Artista artistaRetornado = manager.find(Artista.class, artista.getId());
 		album.getArtista().add(artistaRetornado);
 		manager.persist(album);
+	}
+	
+	public List<Album> buscarTodos(){
+		return manager.createQuery("SELECT a FROM Album a", Album.class).getResultList();
 	}
 	
 }

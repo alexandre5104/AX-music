@@ -5,19 +5,23 @@
 	xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
 	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>music</title>
+	<title>Artista</title>
 </h:head>
 <h:body>
 
 	<p:growl />
 	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome" />
+			<p:inputText value="#{controllerArtista.artista.nome}" />
 
-		<p:inputText value="#{controllerArtista.artista.nome}" />
-		<p:inputText value="#{controllerArtista.artista.nacionalidade}" />
+			<h:outputLabel value="Nacionalidade" />
+			<p:inputText value="#{controllerArtista.artista.nacionalidade}" />
 
-		<p:commandButton value="salvar" action="#{controllerArtista.salvar()}"
-			ajax="false" />
+			<p:commandButton value="salvar"
+				action="#{controllerArtista.salvar()}" ajax="false" />
 
+		</h:panelGrid>
 	</h:form>
 
 </h:body>

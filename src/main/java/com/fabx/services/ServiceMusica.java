@@ -1,5 +1,8 @@
 package com.fabx.services;
 
+import java.util.List;
+
+import com.fabx.domain.Album;
 import com.fabx.domain.Artista;
 import com.fabx.domain.Musica;
 import com.fabx.repository.RepositoryMusica;
@@ -13,8 +16,12 @@ public class ServiceMusica {
 	private RepositoryMusica repositoryMusica;
 	
 	@Transactional
-	public void salvar(Artista artista, Musica musica) {
-		repositoryMusica.salvar(artista, musica);
+	public void salvar(Artista artista, Musica musica, Album album) {
+		repositoryMusica.salvar(artista, musica, album);
+	}
+	
+	public List<Musica> buscarTodos(){
+		return repositoryMusica.buscarTodos();
 	}
 	
 }

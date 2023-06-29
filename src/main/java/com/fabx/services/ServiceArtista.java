@@ -18,8 +18,8 @@ public class ServiceArtista {
 		repositoryArtista.salvar(artista);
 	}
 	
-	public List<Artista> getArtista(){
-		return repositoryArtista.getArtistas();
+	public List<Artista> buscarTodos(){
+		return repositoryArtista.buscarTodos();
 	}
 	
 }

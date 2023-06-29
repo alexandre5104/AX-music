@@ -82,5 +82,5 @@ public class Album {
 	public void setArtista(List<Artista> artista) {
 		this.artista = artista;
 	}
-	
+
 }

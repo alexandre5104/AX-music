@@ -6,7 +6,6 @@ import com.fabx.domain.Artista;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
 
 public class RepositoryArtista {
 
@@ -17,7 +16,7 @@ public class RepositoryArtista {
 		manager.persist(artista);
 	}
 	
-	public List<Artista> getArtistas(){
+	public List<Artista> buscarTodos(){
 		return manager.createQuery("select a from Artista a", Artista.class).getResultList();
 	}
 }

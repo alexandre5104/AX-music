@@ -5,26 +5,37 @@
 	xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
 	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>music</title>
+	<title>Musica</title>
 </h:head>
 <h:body>
 
 	<p:growl />
 	<h:form>
-
+		<h:panelGrid columns="2">
+		<h:outputLabel value="Nome"/>
 		<p:inputText value="#{controllerMusica.musica.nome}" />
+		
+		<h:outputLabel value="Duração"/>
 		<p:inputMask value="#{controllerMusica.musica.duracao}" mask="99:99"
 			converter="converterTime" />
 
-		<p:selectOneMenu id="group" value="#{controllerMusica.artista.id}">
+		<h:outputLabel value="Artista"/>
+		<p:selectOneMenu value="#{controllerMusica.artista.id}">
 			<f:selectItem itemLabel="Selecione" itemValue="" />
 			<f:selectItems var="artista" value="#{controllerMusica.artistas}" itemLabel="#{artista.nome}"
 				itemValue="#{artista.id}"/>
 		</p:selectOneMenu>
+		
+		<h:outputLabel value="Album"/>
+		<p:selectOneMenu value="#{controllerMusica.album.id}">
+			<f:selectItem itemLabel="Selecione" itemValue="" />
+			<f:selectItems var="album" value="#{controllerMusica.albuns}" itemLabel="#{album.nome}"
+				itemValue="#{album.id}"/>
+		</p:selectOneMenu>
 
 		<p:commandButton value="salvar" action="#{controllerMusica.salvar()}"
 			ajax="false" />
-
+		</h:panelGrid>
 	</h:form>
 
 

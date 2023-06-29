@@ -35,7 +35,7 @@ public class ControllerAlbum {
 	
 	@PostConstruct
 	public void init() {
-		setArtistas(serviceArtista.getArtista());
+		artistas = serviceArtista.buscarTodos();	
 	}
 
 	public void salvar() {

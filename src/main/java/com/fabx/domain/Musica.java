@@ -33,7 +33,22 @@ public class Musica {
 	@JoinTable(name="musica_artista",
 			joinColumns = @JoinColumn(name="musica_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(name="artista_id", referencedColumnName = "id"))
-	private List<Artista> artista = new ArrayList<Artista>();
+	private List<Artista> artistas = new ArrayList<Artista>();
+	
+	@ManyToMany
+	@JoinTable(name="musica_albun",
+			joinColumns = @JoinColumn(name="musica_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name="album_id", referencedColumnName = "id"))
+	private List<Album> albuns = new ArrayList<Album>();
+	
+
+	public List<Album> getAlbuns() {
+		return albuns;
+	}
+
+	public void setAlbuns(List<Album> albuns) {
+		this.albuns = albuns;
+	}
 
 	public Long getId() {
 		return id;
@@ -60,11 +75,11 @@ public class Musica {
 	}
 	
 	public List<Artista> getArtista() {
-		return artista;
+		return artistas;
 	}
 
-	public void setArtista(List<Artista> artista) {
-		this.artista = artista;
+	public void setArtista(List<Artista> artistas) {
+		this.artistas = artistas;
 	}
 
 	@Override
