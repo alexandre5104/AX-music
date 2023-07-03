@@ -18,7 +18,7 @@
 }
 
 .top {
-	background-color: #87CEFA;
+	background: linear-gradient(to top, #87CEFA, white);
 	height: 80px;
 	display: flex;
 	border-radius: 5px;
@@ -61,21 +61,24 @@
 					width="30" />
 			</div>
 			<div class="title">
-				<h2 style="color: navy;">PORTAL MÚSICA</h2>
+				<h2 style="color: navy;">SISTEMA DE GERENCIAMENTO DE MÚSICA</h2>
 			</div>
 		</div>
 
 		<div class="side">
 			<p:menu>
 				<p:submenu label="Cadastro" id="cadastro">
-					<p:menuitem value="Cadastro artista" icon="pi pi-save" />
-					<p:menuitem value="Cadastro album" icon="pi pi-refresh" />
-					<p:menuitem value="Cadastro música" icon="pi pi-times" />
+					<p:menuitem value="Cadastro artista" 
+						outcome="admin/artista/artista"/>
+					<p:menuitem value="Cadastro album"
+						outcome="admin/album/album"/>
+					<p:menuitem value="Cadastro música"
+						outcome="admin/musica/musica"/>
 				</p:submenu>
 				<p:submenu label="Listar">
-					<p:menuitem value="listar artista" icon="pi pi-external-link" />
-					<p:menuitem value="listar album" icon="pi pi-external-link" />
-					<p:menuitem value="listar músicas" icon="pi pi-external-link" />
+					<p:menuitem value="Listar artista" />
+					<p:menuitem value="Listar album"  />
+					<p:menuitem value="Listar músicas"/>
 				</p:submenu>
 			</p:menu>
 		</div>

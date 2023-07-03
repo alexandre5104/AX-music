@@ -6,30 +6,114 @@
 	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Album</title>
+
+
+	<style>
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.principal {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.top {
+	background: linear-gradient(to top, #87CEFA, white);
+	height: 80px;
+	display: flex;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.top .imagem {
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.top .imagem img {
+	width: 35%;
+}
+
+.top .title {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formulario {
+	background-color: #87CEFA;
+	display: flex;
+	border-radius: 5px;
+	margin-top: 5px;
+	padding: 20px;
+	color: navy;
+	margin-bottom: 10px;
+}
+
+.container-buttons {
+	display: flex;
+	margin-top:10px;
+}
+
+.btn {
+	margin: 2px;
+}
+</style>
 </h:head>
 <h:body>
 
-	<p:growl />
-	<h:form>
-	<h:panelGrid columns="2">
-		<h:outputLabel value="Nome"/>
-		<p:inputText value="#{controllerAlbum.album.nome}" />
-		
-		<h:outputLabel value="ano"/>
-		<p:inputMask value="#{controllerAlbum.album.ano}"  />
+	<div class="principal">
 
-		<h:outputLabel value="Artista"/>
-		<p:selectOneMenu id="group" value="#{controllerAlbum.artista.id}">
-			<f:selectItem itemLabel="Selecione" itemValue="" />
-			<f:selectItems var="artista" value="#{controllerAlbum.artistas}" itemLabel="#{artista.nome}"
-				itemValue="#{artista.id}"/>
-		</p:selectOneMenu>
+		<div class="top">
+			<div class="imagem">
+				<h:graphicImage value="/resources/images/notas-musicais.png"
+					width="30" />
+			</div>
+			<div class="title">
+				<h2 style="color: navy;">SISTEMA DE GERENCIAMENTO DE MÚSICA</h2>
+			</div>
+		</div>
 
-		<p:commandButton value="salvar" action="#{controllerAlbum.salvar()}"
-			ajax="false" />
-	</h:panelGrid>
-	</h:form>
+		<p:growl id="message"/>
 
+		<div class="formulario">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Nome" />
+					<p:inputText value="#{controllerAlbum.album.nome}" />
+
+					<h:outputLabel value="ano" />
+					<p:inputMask value="#{controllerAlbum.album.ano}" />
+
+					<h:outputLabel value="Artista" />
+					<p:selectOneMenu id="group" value="#{controllerAlbum.artista.id}">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems var="artista" value="#{controllerAlbum.artistas}"
+							itemLabel="#{artista.nome}" itemValue="#{artista.id}" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+
+				<div class="container-buttons">
+					<div class="btn">
+						<p:commandButton value="salvar"
+							action="#{controllerAlbum.salvar()}" ajax="false" />
+					</div>
+
+					<div class="btn">
+						<p:button value="home" outcome="/home.xhtml" ajax="false" 
+						update="message"/>
+					</div>
+				</div>
+			</h:form>
+		</div>
+
+	</div>
 </h:body>
 
 </html>
