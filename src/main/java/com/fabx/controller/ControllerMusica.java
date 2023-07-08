@@ -29,6 +29,8 @@ public class ControllerMusica {
 	
 	private List<Album> albuns;
 	
+	private List<Musica> musicas;
+	
 	private Album album = new Album();
 
 	private Artista artista = new Artista();
@@ -47,6 +49,8 @@ public class ControllerMusica {
 		setArtistas(serviceArtista.buscarTodos());
 		
 		setAlbuns(serviceAlbum.buscarTodos());
+	
+		musicas = ServiceMusica.buscarTodos();
 	}
 
 	public void salvar() {
@@ -96,6 +100,14 @@ public class ControllerMusica {
 
 	public void setAlbuns(List<Album> albuns) {
 		this.albuns = albuns;
+	}
+
+	public List<Musica> getMusicas() {
+		return musicas;
+	}
+
+	public void setMusicas(List<Musica> musicas) {
+		this.musicas = musicas;
 	}
 
 }

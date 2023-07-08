@@ -1,5 +1,6 @@
 package com.fabx.services;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fabx.domain.Album;
@@ -9,8 +10,10 @@ import com.fabx.repository.RepositoryAlbum;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
-public class ServiceAlbum {
+public class ServiceAlbum implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Inject
 	private RepositoryAlbum repositoryAlbum;
 	

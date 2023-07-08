@@ -1,5 +1,6 @@
 package com.fabx.repository;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fabx.domain.Album;
@@ -8,8 +9,10 @@ import com.fabx.domain.Artista;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
-public class RepositoryAlbum {
+public class RepositoryAlbum implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@PersistenceContext
 	private EntityManager manager;
 	

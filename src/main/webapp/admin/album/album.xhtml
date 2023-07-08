@@ -58,7 +58,7 @@
 
 .container-buttons {
 	display: flex;
-	margin-top:10px;
+	margin-top: 10px;
 }
 
 .btn {
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 
-		<p:growl id="message"/>
+		<p:growl id="message" />
 
 		<div class="formulario">
 			<h:form>
@@ -92,22 +92,22 @@
 					<p:inputMask value="#{controllerAlbum.album.ano}" />
 
 					<h:outputLabel value="Artista" />
-					<p:selectOneMenu id="group" value="#{controllerAlbum.artista.id}">
+					<p:selectOneMenu value="#{controllerAlbum.artista.id}" > 
 						<f:selectItem itemLabel="Selecione" itemValue="" />
-						<f:selectItems var="artista" value="#{controllerAlbum.artistas}"
-							itemLabel="#{artista.nome}" itemValue="#{artista.id}" />
+						<f:selectItems var="a" value="#{controllerAlbum.artistas}"
+							itemLabel="#{a.nome}" itemValue="#{a.id}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
 
 				<div class="container-buttons">
 					<div class="btn">
 						<p:commandButton value="salvar"
-							action="#{controllerAlbum.salvar()}" ajax="false" />
+							action="#{controllerAlbum.salvar()}" ajax="false" icon="pi pi-save"/>
 					</div>
 
 					<div class="btn">
-						<p:button value="home" outcome="/home.xhtml" ajax="false" 
-						update="message"/>
+						<p:button value="home" outcome="/home.xhtml" ajax="false"
+							update="message" icon="pi pi-home"/>
 					</div>
 				</div>
 			</h:form>

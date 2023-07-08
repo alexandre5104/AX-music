@@ -1,5 +1,6 @@
 package com.fabx.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fabx.domain.Album;
@@ -11,17 +12,22 @@ import com.fabx.services.ServiceArtista;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 @Named
 @RequestScoped
-public class ControllerAlbum {
+public class ControllerAlbum implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private MessageHelper mh;
 
 	private Album album = new Album();
+	
+	private List<Album> albuns;
 	
 	private List<Artista> artistas;
 	
@@ -36,6 +42,7 @@ public class ControllerAlbum {
 	@PostConstruct
 	public void init() {
 		artistas = serviceArtista.buscarTodos();	
+		setAlbuns(serviceAlbum.buscarTodos());
 	}
 
 	public void salvar() {
@@ -69,6 +76,14 @@ public class ControllerAlbum {
 
 	public void setAlbum(Album album) {
 		this.album = album;
+	}
+
+	public List<Album> getAlbuns() {
+		return albuns;
+	}
+
+	public void setAlbuns(List<Album> albuns) {
+		this.albuns = albuns;
 	}
 
 }

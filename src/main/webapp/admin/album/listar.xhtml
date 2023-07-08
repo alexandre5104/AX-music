@@ -4,8 +4,9 @@
 <html lang="en" xmlns:h="jakarta.faces.html"
 	xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
 	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-	<title>Artista</title>
+	<title>Listar artista</title>
 
 	<style>
 * {
@@ -45,23 +46,9 @@
 	align-items: center;
 }
 
-.formulario {
-	background-color: #87CEFA;
-	display: flex;
-	border-radius: 5px;
-	margin-top: 5px;
-	padding: 20px;
-	color: navy;
-	margin-bottom: 10px;
-}
-
 .container-buttons {
 	display: flex;
-	margin-top:15px;
-}
-
-.btn {
-	margin: 2px;
+	margin-top:10px;
 }
 </style>
 </h:head>
@@ -78,37 +65,27 @@
 				<h2 style="color: navy;">SISTEMA DE GERENCIAMENTO DE MÚSICA</h2>
 			</div>
 		</div>
-		<p:growl id="message"/>
+		<div class="container-table">
 
-		<div class="formulario">
-			<h:form>
-				<h:panelGrid columns="2">
+			<p:dataTable var="album" value="#{controllerAlbum.albuns}">
+				<p:column headerText="Nome">
+					<h:outputText value="#{album.nome}" />
+				</p:column>
 
-					<h:outputLabel value="Nome" />
-					<p:inputText value="#{controllerArtista.artista.nome}" />
+				<p:column headerText="Ano">
+					<h:outputText value="#{album.ano}" />
+				</p:column>
 
-					<h:outputLabel value="Nacionalidade" />
-					<p:inputText value="#{controllerArtista.artista.nacionalidade}" />
+			</p:dataTable>
 
-				</h:panelGrid>
-
-				<div class="container-buttons">
-					<div class="btn">
-						<p:commandButton value="salvar"
-							action="#{controllerArtista.salvar()}" update="message" 
-							ajax="false" icon="pi pi-save"/>
-					</div>
-
-					<div class="btn">
-						<p:button value="home" outcome="/home.xhtml" ajax="false" 
-						icon="pi pi-home"/>
-					</div>
-				</div>
-			</h:form>
 		</div>
 
-
+		<div class="container-buttons">
+			<div class="btn">
+				<p:button value="home" outcome="/home.xhtml" ajax="false" icon="pi pi-home"/>
+			</div>
+		</div>
 	</div>
-</h:body>
 
+</h:body>
 </html>

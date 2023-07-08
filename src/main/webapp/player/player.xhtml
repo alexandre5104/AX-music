@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core" xmlns:ui="jakarta.faces.facelets"
+	xmlns:pt="jakarta.faces.passthrough" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>music</title>
+	<style>
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: cursive
+}
+
+.principal {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.principal .top {
+	background: linear-gradient(to top, #9400D3, white);
+	height: 80px;
+	display: flex;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.principal .top .imagem {
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.principal .top .imagem img {
+	width: 35%;
+}
+
+.principal .top .title {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.principal .content {
+	display: flex;
+	width: 100;
+}
+
+.principal .content .card {
+	min-height: calc(100vh - 1000px);
+	margin-top: 10px;
+}
+
+.principal .container .card:nth-child(1) {
+	width: 30%;
+}
+
+.principal .container .card:nth-child(2) {
+	width: 70%;
+}
+
+.principal .content .card .img {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+}
+
+.principal .content .card .img img {
+	width: 70%
+}
+
+</style>
+</h:head>
+<h:body>
+
+
+
+	<div class="principal">
+
+		<div class="top">
+			<div class="imagem">
+				<h:graphicImage value="/resources/images/notas-musicais.png"
+					width="30" />
+			</div>
+			<div class="title">
+				<h2 style="color: navy;">AX MUSIC</h2>
+			</div>
+		</div>
+		<div class="content">
+
+			<div class="card">
+
+				<p:audio value="#{controllerPlayer.musica}" player="mp3"
+					cache="false" controls="true"
+					onplay="console.log('MP3 Started Playing')"
+					onpause="console.log('MP3 Stopped Playing')" id="audio">
+				</p:audio>
+
+				<div class="img">
+					<h3 style="margin-bottom: 10px">#{controllerPlayer.nomeMusica}</h3>
+
+					<h:graphicImage library="images" name="#{controllerPlayer.nomeMusica}.jpg"
+						width="30" />
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="container-table">
+
+					<p:dataTable var="musica" value="#{controllerPlayer.musicas}">
+						<p:column headerText="Musica">
+							<h:outputText value="#{musica.nome}" />
+						</p:column>
+
+						<p:column headerText="Duração">
+							<h:outputText value="#{musica.duracao}" />
+						</p:column>
+
+						<p:column headerText="Tocar">
+							<h:form>
+								<p:commandButton ajax="false" icon="pi pi-play"
+									style="border-radius:50px"
+									action="#{controllerPlayer.play(musica.nome)}" update="audio" />
+							</h:form>
+						</p:column>
+					</p:dataTable>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+
+</html>

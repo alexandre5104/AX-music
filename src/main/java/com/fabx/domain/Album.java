@@ -1,9 +1,11 @@
 package com.fabx.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,7 +20,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Album {
+public class Album implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@EqualsAndHashCode.Include
 	@Id
@@ -32,7 +36,7 @@ public class Album {
 
 	private Integer ano;
 
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="album_artista",
 	joinColumns = @JoinColumn(name="album_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="artista_id", referencedColumnName = "id"))
