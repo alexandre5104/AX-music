@@ -5,7 +5,7 @@ AX-music é um projeto de player de musica utilizando o componente audio do Prim
 
 ## Comaçando:
 
-## Para executar o projeto, será necessário instalar os seguintes programas:
+Para executar o projeto, será necessário instalar os seguintes programas:
 
 * [JDK 11 para executar o projeto](https://link-url-here.org).
 * [Maven 3.6.3 Necessário para realizar o build do projeto Java](https://maven.apache.org/).
