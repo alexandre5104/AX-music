@@ -11,7 +11,7 @@ AX-music é um projeto de player de musica utilizando o componente audio do Prim
 * [Maven 3.6.3 Necessário para realizar o build do projeto Java](https://maven.apache.org/).
 * [ECLIPSE: Para desenvolvimento do projeto](https://www.eclipse.org/downloads/).
 
-### Tecnologias:
+### Tecnologias utilizadas:
 1. Maven
 1. Hibernate
 1. JSF
