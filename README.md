@@ -16,6 +16,12 @@ AX-music é um projeto de player de musica utilizando o componente audio do Prim
 1. Hibernate
 1. JSF
 
+## Desenvolvimento:
+
+###
+
+Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
+
 ### Funcionalidades:
 1. Cadastrar Artista, Música e Album
 2. Listar Artista, Música e Album
